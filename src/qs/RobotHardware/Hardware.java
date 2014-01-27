@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.camera.AxisCamera;
 import edu.wpi.first.wpilibj.image.CriteriaCollection;
 import edu.wpi.first.wpilibj.image.NIVision;
-import qs.Vision.VisionConstants.TargetReport;
 
 /**
  *
@@ -28,14 +27,13 @@ public class Hardware {
     // PWM ports for each element
     public static final int talon_front_left = 1; //oops we need to give it actual values
     public static final int talon_front_right = 2;
-  //  public static final int talon_back_left = 3;
-    //public static final int talon_back_right = 4;
+
     public static final int talon_indexer = 4;
-    public static final int talon_left_arm = 3;
-    //public static final int talon_right_arm = 4;
-    public static final int relay_defense = 1;
-    public static final int relay_winch = 2;
+    public static final int talon_arm = 3;
     
+    
+    //relay ports
+    public static final int relay_defense = 1;
     //toggle variables
      private static boolean motorStatus;
 private static boolean previousButton = false;
@@ -79,10 +77,9 @@ private static boolean currentButton = false;
     static double pulse = 0.0357142857142857;
     static double pulse1 = (4*Math.PI) / 360;
           
-//    public static final Encoder encoder_back_left = new Encoder(5,6);
-  //  public static final Encoder encoder_back_right = new Encoder(7,8);
+
        public static final int gyro_port = 1;
-    public static final InsightLT display = new InsightLT(InsightLT.TWO_ONE_LINE_ZONES); // InsightLT Constructor
+    public static final InsightLT display = new InsightLT(InsightLT.FOUR_ZONES); // InsightLT Constructor
     public static final String Active ="Active";
     public static final String Diasbled = "Disabled";
     
@@ -100,26 +97,15 @@ private static boolean currentButton = false;
         cc = new CriteriaCollection();      // create the criteria for the particle filter
         cc.addCriteria(NIVision.MeasurementType.IMAQ_MT_AREA, AREA_MINIMUM, 65535, false);
         
-        
-        
-        //pwm[talon_front_left] = new Talon(talon_front_left);
-        //pwm[talon_front_right] = new Talon(talon_front_right);
-        //pwm[talon_indexer] = new Talon(talon_indexer);
-//        pwm[talon_back_left] = new Talon(talon_back_left);
-//        pwm[talon_back_right] = new Talon(talon_back_right); //yep, now lets make sure it works
-//        
-        relays[relay_defense] = new Relay(relay_defense);
-      //  relays[relay_winch] = new Relay(relay_winch);
-       
-encoder_front_left.setDistancePerPulse(pulse);
+        encoder_front_left.setDistancePerPulse(pulse);
         encoder_front_right.setDistancePerPulse(pulse);
+        
         encoder_front_left.reset();
         encoder_front_right.reset();
+        
         encoder_front_left.start();
         encoder_front_right.start();
-        
-    //    encoder_back_left.start();    //or maybe we should do this in its own module? that works
-      //  encoder_back_right.start();
+
      
     }
       public static boolean toggleJoystick1(int buttonnumber){
