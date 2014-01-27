@@ -25,7 +25,8 @@ public class AdvancedVision extends AvianceThread{
     public AdvancedVision(){
     AvianceThreadManager.getInstance().addThread(AvianceRobot.teleopThreads, this);}
        
-    
+    public static boolean HotGoal = false;
+    public static double Distance;
     public class Scores {
         double rectangularity;
         double aspectRatioVertical;
@@ -118,12 +119,15 @@ public class AdvancedVision extends AvianceThread{
                                     ParticleAnalysisReport distanceReport = filteredImage.getParticleAnalysisReport(target.verticalIndex);
                                     double distance = computeDistance(filteredImage, distanceReport, target.verticalIndex);
                                     if(target.Hot)
-                                    {
+                                    {       HotGoal = true;
+                                    
+                                            Distance = distance;
                                             System.out.println("Hot target located");
                                             System.out.println("Distance: " + distance);
                                     } else {
                                             System.out.println("No hot target present");
                                             System.out.println("Distance: " + distance);
+                                            HotGoal = false;
                                     }
                             }
              

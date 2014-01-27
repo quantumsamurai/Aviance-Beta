@@ -140,9 +140,9 @@ public final class AvianceRobot extends AvianceThread{
             
              // and over here is where we launch another Isolate program that is very simple and guaranteed to work in worse case senario
         
-        //    Isolate failsafe = new Isolate("edu.qs.frc.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
-        //    failsafe.start();
-          //  failsafe.join();
+            Isolate failsafe = new Isolate("qs.FrameworkEntered.FailSafeRobot", new String[0], null, Isolate.currentIsolate().getParentSuiteSourceURI());
+            failsafe.start();
+            failsafe.join();
             
         }
     }

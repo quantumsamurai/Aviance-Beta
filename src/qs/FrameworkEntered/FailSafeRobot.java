@@ -9,12 +9,15 @@ import qs.GeneralModules.AvianceRobot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SimpleRobot;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 /**
  *
  * @author Darvin
  */
-public class FailSafeRobot extends SimpleRobot{
+public class FailSafeRobot {
+
 
 
 
@@ -25,14 +28,40 @@ public class FailSafeRobot extends SimpleRobot{
    
     
 
-    
+   static DriverStation driverStation = DriverStation.getInstance();
     
     public static void main(String[] args){
-      
-        //fuck it we'll do this later
-        System.out.println("FAILSAFE ROBOT HAS BEEN STARTED"); //it works
+
+        System.out.println("FAILSAFE ROBOT HAS BEEN STARTED"); 
+        boolean disabled = driverStation.isDisabled(); //
+        boolean autonomous = driverStation.isAutonomous(); // so these guys report the state of the bot upon entering of the loop and apply for this iteration     
+        boolean teleoperated = driverStation.isOperatorControl();   
+        boolean fms = driverStation.isFMSAttached();     
+        
+        if(disabled){
+                    while(driverStation.isDisabled())
+                     disabled();
+                }
+                
+                else if (autonomous){
+                    
+                    
+                    while(driverStation.isEnabled())
+                   autonomous() ;
+                }
+                
+                else if (teleoperated){
+                  
+                    while(driverStation.isEnabled())
+                   teleoperated() ;
+                }
      
         
 
     }
+    public static void teleoperated(){ System.out.println("In Teleoperated");}
+    public static void autonomous(){System.out.println("In Autonomous");}
+    public static void disabled(){}
+    
+
 }

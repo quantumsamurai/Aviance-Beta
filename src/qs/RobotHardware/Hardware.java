@@ -74,6 +74,10 @@ private static boolean currentButton = false;
     
     public static final Encoder encoder_front_left = new Encoder(2,1);  //this is a more concise way of doing things even though it's slightly inconsistent
     public static final Encoder encoder_front_right = new Encoder(3,4);
+    
+    //encoder pulse test
+    static double pulse = 0.0357142857142857;
+    static double pulse1 = (4*Math.PI) / 360;
           
 //    public static final Encoder encoder_back_left = new Encoder(5,6);
   //  public static final Encoder encoder_back_right = new Encoder(7,8);
@@ -107,8 +111,8 @@ private static boolean currentButton = false;
         relays[relay_defense] = new Relay(relay_defense);
       //  relays[relay_winch] = new Relay(relay_winch);
        
-encoder_front_left.setDistancePerPulse((4*Math.PI) / 360);
-        encoder_front_right.setDistancePerPulse((4*Math.PI) / 360);
+encoder_front_left.setDistancePerPulse(pulse);
+        encoder_front_right.setDistancePerPulse(pulse);
         encoder_front_left.reset();
         encoder_front_right.reset();
         encoder_front_left.start();

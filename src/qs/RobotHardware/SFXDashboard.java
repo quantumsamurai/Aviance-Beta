@@ -16,8 +16,8 @@ import qs.GeneralModules.AvianceRobot;
  *
  * @author admin
  */
-public class SFXTest extends AvianceThread{
-    public SFXTest(){
+public class SFXDashboard extends AvianceThread{
+    public SFXDashboard(){
     AvianceThreadManager.getInstance().addThread(AvianceRobot.systemThreadGroup, this);
     }
     protected void iteration(){

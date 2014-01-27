@@ -12,6 +12,7 @@ import qs.DefenseModules.Defense;
 import qs.DriveModules.AvianceHybridDrive;
 import qs.Indexer.Indexer;
 import qs.Indexer.IndexingWheels;
+import qs.RobotHardware.SFXDashboard;
 
 import qs.sensors.AccelerometerReadings;
 import qs.sensors.EncoderTesting;
@@ -57,7 +58,7 @@ public class EntryPoint extends MIDlet {
         new EncoderTesting();
         new GyroTesting();
         //System Threads
-
+        new SFXDashboard();
         
         
 
