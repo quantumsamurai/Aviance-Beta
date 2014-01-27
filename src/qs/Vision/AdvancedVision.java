@@ -52,7 +52,7 @@ public class AdvancedVision extends AvianceThread{
  
         try {
             ColorImage image = Hardware.camera.getImage();
-             BinaryImage thresholdImage = image.thresholdHSV(105, 137, 230, 255, 133, 183);
+             BinaryImage thresholdImage = image.thresholdHSV(VisionConstants.Hue_Low,VisionConstants.Hue_High, VisionConstants.Saturation_Low, VisionConstants.Saturation_High, VisionConstants.V_Low, VisionConstants.V_High);
              BinaryImage filteredImage = thresholdImage.particleFilter(Hardware.cc);  
              Scores scores[] = new Scores[filteredImage.getNumberParticles()];
              horizontalTargetCount = verticalTargetCount = 0;

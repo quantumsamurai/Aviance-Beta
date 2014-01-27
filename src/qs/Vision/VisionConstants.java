@@ -19,8 +19,17 @@ public class VisionConstants {
 
     public static final double VIEW_ANGLE = 37.4;  //Axis M1011 camera
     public static final double PI = 3.141592653;
+    
+  // Color Values  
+public static final int Hue_Low = 220;
+public static final int Hue_High = 220;
+public static final int Saturation_Low = 220;
+public static final int Saturation_High = 220;
+public static final int V_Low = 220;
+public static final int V_High = 220;
 
-    //Score limits used for target identification
+
+//Score limits used for target identification
   public static   final int  RECTANGULARITY_LIMIT = 40;
   public static   final int ASPECT_RATIO_LIMIT = 55;
 
