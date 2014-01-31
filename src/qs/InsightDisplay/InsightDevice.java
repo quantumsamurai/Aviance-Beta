@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package InsightDisplay;
+package qs.InsightDisplay;
 
 import qs.sensors.AccelerometerReadings;
 import qs.ThreadSetup.AvianceThread;
